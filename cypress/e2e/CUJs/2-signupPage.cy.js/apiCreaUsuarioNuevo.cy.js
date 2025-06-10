@@ -2,6 +2,7 @@
 import { faker } from '@faker-js/faker';
 import { URLs} from '../../../pages/pageUrls';
 import { SIGNUP_SELECTORS } from '../../../pages/signupPage';
+import { API_ENDPOINTS } from '../../../fixtures/apiPaths'
 
 describe('API Account creation', () => {
   it('Verify the account was created using the (POST) method and returns a (201) status for the request', () => {
@@ -9,7 +10,7 @@ describe('API Account creation', () => {
     const validName = faker.person.fullName()
     const validPassword = faker.internet.password(8)
 
-    cy.intercept('POST', '/api/v1/auth/signup').as('createAccountRequest')
+    cy.intercept('POST', API_ENDPOINTS.API_SIGNUP).as('createAccountRequest')
     cy.visit(URLs.SIGNUP)
     cy.get(SIGNUP_SELECTORS.FULL_NAME_INPUT).type(validName)
     cy.get(SIGNUP_SELECTORS.EMAIL_INPUT).type(validEmail)
