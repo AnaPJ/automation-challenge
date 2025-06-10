@@ -2,8 +2,9 @@
   "name": "automation_challenge",
   "version": "1.0.0",
   "main": "index.js",
+  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress open"
   },
   "keywords": [],
   "author": "",
@@ -11,5 +12,9 @@
   "description": "",
   "devDependencies": {
     "cypress": "^14.4.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.8.0",
+    "type": "module"
   }
 }

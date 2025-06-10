@@ -1,3 +1,6 @@
 node_modules/
 cypress/screenshots/
 cypress/videos/
+.DS_Store
+cypress/e2e/advanced-examples
+cypress/e2e/examples
