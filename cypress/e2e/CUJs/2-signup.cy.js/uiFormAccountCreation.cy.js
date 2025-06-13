@@ -1,7 +1,7 @@
 // Importa faker.js
 import { faker, ur } from '@faker-js/faker';
 import { URLs } from '../../../pages/pageUrls';
-import { SIGNUP_SELECTORS } from '../../../pages/signupPage';
+import { SIGNUP_SELECTORS } from '../../../pages/signupPageSelectors';
 
 describe('Account creation form', () => {
   beforeEach(() => {
@@ -14,7 +14,7 @@ describe('Account creation form', () => {
   const successMessage = 'Operación Exitosa'
  
   it('Verify the form for creating a new user is visible.', () => {
-    cy.get('form.mx-auto').should('be.visible')
+    cy.get(SIGNUP_SELECTORS.FORM).should('be.visible')
     cy.get(SIGNUP_SELECTORS.EMAIL_INPUT).should('be.visible')
     cy.get(SIGNUP_SELECTORS.FULL_NAME_INPUT).should('be.visible')
     cy.get(SIGNUP_SELECTORS.PASSWORD_INPUT).should('be.visible')
@@ -23,7 +23,12 @@ describe('Account creation form', () => {
     cy.get(`a[href='${URLs.LOGIN}']`).should('be.visible')
   })
 
-  it ('Verify that the placeholder text for the fields is correct.', () => {
+  it('Verify the submit button is disabled when the fields are empty.', () => {
+    cy.get('form.mx-auto').should('be.visible')
+    cy.get(SIGNUP_SELECTORS.SUBMIT_BUTTON).should('be.disabled') 
+  })
+
+  it ('Verify that the placeholder texts for the fields are correct.', () => {
     cy.get(SIGNUP_SELECTORS.EMAIL_INPUT).should('have.attr', 'placeholder', 'Ingresa tu email')
     cy.get(SIGNUP_SELECTORS.FULL_NAME_INPUT).should('have.attr', 'placeholder','Ingresa tu nombre completo')
     cy.get(SIGNUP_SELECTORS.PASSWORD_INPUT).should('have.attr', 'placeholder', 'Ingresa tu contraseña')

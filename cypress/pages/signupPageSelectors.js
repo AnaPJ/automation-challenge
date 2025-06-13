@@ -1,4 +1,5 @@
 export const SIGNUP_SELECTORS = {
+    FORM: 'form.mx-auto',
     FULL_NAME_INPUT: 'input[name="name"]',
     EMAIL_INPUT: 'input[name="email"]',
     PASSWORD_INPUT: 'input[name="password"]',
@@ -6,5 +7,4 @@ export const SIGNUP_SELECTORS = {
     SUBMIT_BUTTON: 'button[data-at="submit-signup"]',
     MODAL_TITLE: '#swal2-title',
     MODAL_TEXT: '#swal2-html-container',
-    ERROR_MESSAGE: '',
 }

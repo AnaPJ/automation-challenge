@@ -1,7 +1,7 @@
 // Importa faker.js
 import { faker } from '@faker-js/faker';
 import { URLs} from '../../../pages/pageUrls';
-import { SIGNUP_SELECTORS } from '../../../pages/signupPage';
+import { SIGNUP_SELECTORS } from '../../../pages/signupPageSelectors';
 import { API_ENDPOINTS } from '../../../fixtures/apiPaths'
 
 describe('API Account creation', () => {
