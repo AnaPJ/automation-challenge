@@ -6,3 +6,4 @@ export const URLs = {
     PRODUCTS: '/products',
     CONFIRM: '/auth/confirm-account?token=RpdSbIGhZz5o0yqKOSuNhXcw5vqT4b&email='
 }
+
