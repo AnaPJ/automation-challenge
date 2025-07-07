@@ -2,8 +2,9 @@ import { faker, ur } from '@faker-js/faker';
 import { URLs } from '../../../pages/pageUrls';
 import { FORM_SELECTORS } from '../../../pages/formSelectors';
 import FormPageObject from '../../../pages/FormPageObject';
+import { API_ENDPOINTS } from '../../../fixtures/apiPaths'
 
-describe('Account creation form', () => {
+describe('Account creation functionality', () => {
   beforeEach(() => {
     cy.visit(URLs.SIGNUP)
   })
@@ -17,7 +18,7 @@ describe('Account creation form', () => {
     FormPageObject.actionFindFormContainer();
     FormPageObject.assertionSignupFormFieldsAreReadyToFill();
     //Link ''Inicia Sesion''
-    cy.get(`a[href='${URLs.LOGIN}']`).should('be.visible')
+    cy.get("a[href='" + URLs.LOGIN + "']").should('be.visible')
   })
     // cy.get(FORM_SELECTORS.FORM).shoud('be.visible')
     // cy.get(FORM_SELECTORS.EMAIL_INPUT).should('be.visible')
@@ -83,4 +84,32 @@ describe('Account creation form', () => {
   })
   // cy.get(FORM_SELECTORS.MODAL_TITLE).contains(successMessage).should('be.visible')
   // cy.get(FORM_SELECTORS.MODAL_TEXT).contains(validName).should('be.visible')
+})
+
+describe('API Account creation', () => {
+  it('should verify that the account was created using the (POST) method and that returns a (201) status for the request', () => {
+    const validEmail = faker.internet.email()
+    const validName = faker.person.fullName()
+    const validPassword = faker.internet.password(8)
+
+    cy.intercept('POST', API_ENDPOINTS.API_SIGNUP).as('createAccountRequest')
+    cy.visit(URLs.SIGNUP)
+    FormPageObject.actionFillEmail(validEmail)
+    FormPageObject.actionFillName(validName)
+    FormPageObject.actionFillPassword(validPassword)
+    FormPageObject.actionFillConfirmPassword(validPassword)
+    FormPageObject.actionClickSubmitSignUpButton()
+    cy.wait('@createAccountRequest').then(intercept => { 
+      expect(intercept.request.method).to.equal('POST')
+      expect(intercept.response.statusCode).to.equal(201)
+    })
+    // //cy.get(FORM_SELECTORS.EMAIL_INPUT).type(validEmail)
+    // cy.get(FORM_SELECTORS.PASSWORD_INPUT).type(validPassword)
+    // cy.get(FORM_SELECTORS.CONFIRM_PASSWORD_INPUT).type(validPassword)
+    // cy.get(FORM_SELECTORS.SUBMIT_SIGNUP_BUTTON).click() 
+    // cy.wait('@createAccountRequest').then(intercept => { 
+    // expect(intercept.request.method).to.equal('POST')
+    // expect(intercept.response.statusCode).to.equal(201)
+    // })
+  })
 })

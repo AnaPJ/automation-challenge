@@ -1,7 +1,6 @@
-import { FORM_SELECTORS } from './formSelectors';
+import { FORM_SELECTORS } from './formSelectors'
 
 class FormPageObject {
-
     actionFindFormContainer() {
         return cy.get(FORM_SELECTORS.FORM);
     }
