@@ -1,4 +1,3 @@
-import { faker } from '@faker-js/faker';
 import { USER1 } from '../../../fixtures/users';
 import { URLs } from '../../../pages/pageUrls';
 import { FORM_SELECTORS } from '../../../pages/formSelectors';
@@ -10,8 +9,8 @@ describe('Login form error messages', () => {
     cy.visit(URLs.LOGIN);
   });
 
-  const invalidEmail = 'mail';
-  const invalidPassword = "hh";
+  const invalidEmail = 'test@invalid';
+  const invalidPassword = "12ab ";
   const validEmail = USER1.userEmail;
   const validPassword = USER1.password;
   const errorMessage = 'Este campo es requerido';

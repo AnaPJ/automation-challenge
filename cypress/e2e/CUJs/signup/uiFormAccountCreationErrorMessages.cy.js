@@ -10,8 +10,8 @@ describe('Account creation form error messages', () => {
     cy.visit(URLs.SIGNUP)
   })  
 
-  const invalidEmail = "mail";
-  const invalidPassword = "hh";
+  const invalidEmail = 'test@invalid';
+  const invalidPassword = "12ab ";
   const invalidName = "%%";
   const validEmail = USER1.userEmail;
   const validName = USER1.name;
