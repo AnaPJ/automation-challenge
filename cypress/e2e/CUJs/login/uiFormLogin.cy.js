@@ -4,7 +4,6 @@ import { FORM_SELECTORS } from '../../../pages/formSelectors';
 import FormPageObject from '../../../pages/FormPageObject';
 import LoginPageObject from '../../../pages/LoginPageObject';
 import { API_ENDPOINTS } from '../../../fixtures/apiPaths';
-import DATA from '../../../fixtures/data';
 
 describe('Login functionality', () => {
 
@@ -53,12 +52,12 @@ describe('Login functionality', () => {
   // cy.get(FORM_SELECTORS.EMAIL_INPUT).type(validEmail)
   // cy.get(FORM_SELECTORS.PASSWORD_INPUT).type(validPassword)
   // cy.get(FORM_SELECTORS.SUBMIT_LOGIN_BUTTON).should('be.visible').click()
-  // cy.getCookie(DATA.COOKIE_NAME).should('exist');
-  // cy.url().should.equal(URLs.HOME);
-  // cy.get(URLs.HOME).should('be.visible');
-  // cy.get(URLs.FAVORITE).should('be.visible');
-  // cy.get(URLs.MY_ACCOUNT).should('be.visible');
-  // cy.get(URLs.LOGOUT).should('be.visible');      
+  // cy.getCookie(DATA.COOKIE_NAME).should('exist')
+  // cy.url().should.equal(URLs.HOME)
+  // cy.get(URLs.HOME).should('be.visible')
+  // cy.get(URLs.FAVORITE).should('be.visible')
+  // cy.get(URLs.MY_ACCOUNT).should('be.visible')
+  // cy.get(URLs.LOGOUT).should('be.visible')  
 })
 
 describe('Validate API Account login', () => {
