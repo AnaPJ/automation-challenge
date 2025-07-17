@@ -14,5 +14,4 @@ describe('Logout functionality', () => {
     LoginPageObject.assertionNavBarLoginLinksAreVisible();
     // LogoutPageObject.assertionNavBarLogoutLinksAreNotVisible();  
   });  
-  
 })  

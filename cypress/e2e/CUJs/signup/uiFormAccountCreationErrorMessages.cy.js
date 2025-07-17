@@ -24,13 +24,13 @@ describe('Account creation form error messages', () => {
 //     FormPageObject.actionFillEmail(invalidEmail);
 //     FormPageObject.actionFillName(validName);
 //     FormPageObject.actionFillPassword(validPassword);
-//     FormPageObject.actionFillConfirmPassword(validPassword)
+//     FormPageObject.actionFillConfirmPassword(validPassword);
 //     FormPageObject.assertionSubmitLoginButtonIsDisabled();
 //   });
   // cy.get(FORM_SELECTORS.EMAIL_INPUT).type(invalidEmail);
   // cy.get(FORM_SELECTORS.PASSWORD_INPUT).type(validPassword);
   // cy.get(FORM_SELECTORS.FULL_NAME_INPUT).type(validName);
-  // cy.get(FORM_SELECTORS.CONFIRM_PASSWORD_INPUT).type(validPassword)
+  // cy.get(FORM_SELECTORS.CONFIRM_PASSWORD_INPUT).type(validPassword);
   // cy.get(FORM_SELECTORS.SUBMIT_LOGIN_BUTTON).should('be.disabled');
 
   // BUG: Este escenario va a a fallar porque el botón se habilita sin tener todos lo campos llenos 
@@ -38,13 +38,13 @@ describe('Account creation form error messages', () => {
 //     FormPageObject.actionFillEmail(validEmail);
 //     FormPageObject.actionFillName(validName);
 //     FormPageObject.actionFillPassword(invalidPassword);
-//     FormPageObject.actionFillConfirmPassword(validPassword)
+//     FormPageObject.actionFillConfirmPassword(validPassword);
 //     FormPageObject.assertionSubmitLoginButtonIsDisabled();
 //   });
 //   // cy.get(FORM_SELECTORS.EMAIL_INPUT).type(validEmail);
 //   // cy.get(FORM_SELECTORS.FULL_NAME_INPUT).type(validName);
 //   // cy.get(FORM_SELECTORS.PASSWORD_INPUT).type(invalidPassword);
-//   // cy.get(FORM_SELECTORS.CONFIRM_PASSWORD_INPUT).type(validPassword)
+//   // cy.get(FORM_SELECTORS.CONFIRM_PASSWORD_INPUT).type(validPassword);
 //   // cy.get(FORM_SELECTORS.SUBMIT_LOGIN_BUTTON).should('be.disabled');
 
 // // BUG: Este escenario va a a fallar porque el botón se habilita sin tener todos lo campos llenos.  
@@ -52,7 +52,7 @@ describe('Account creation form error messages', () => {
 //     FormPageObject.actionFillEmail(validEmail);
 //     FormPageObject.actionFillName(invalidName);
 //     FormPageObject.actionFillPassword(validPassword);
-//     FormPageObject.actionFillConfirmPassword(validPassword)
+//     FormPageObject.actionFillConfirmPassword(validPassword);
 //     FormPageObject.assertionSubmitLoginButtonIsDisabled();
 //   });
   // cy.get(FORM_SELECTORS.EMAIL_INPUT).type(validEmail);
@@ -63,17 +63,17 @@ describe('Account creation form error messages', () => {
   // cy.get(FORM_SELECTORS.SUBMIT_LOGIN_BUTTON).should('be.disabled');
 
   it('should verify the error message for empty Email field.', () => {
-    FormPageObject.actionFillEmail("a")
+    FormPageObject.actionFillEmail("a");
     FormPageObject.actionClearEmail();
-    FormPageObject.actionFindErrorMessageForField(FORM_SELECTORS.EMAIL_INPUT,FORM_SELECTORS.ERROR_MESSAGE,errorMessage)
+    FormPageObject.actionFindErrorMessageForField(FORM_SELECTORS.EMAIL_INPUT,FORM_SELECTORS.ERROR_MESSAGE,errorMessage);
   });
  // cy.get(FORM_SELECTORS.EMAIL_INPUT).clear();
  // cy.get(FORM_SELECTORS.EMAIL_INPUT).next(FORM_SELECTORS.ERROR_MESSAGE).should('have.text', errorMessage);
 
  it('should verify the error message for empty Name field.', () => {
-    FormPageObject.actionFillName("a")
+    FormPageObject.actionFillName("a");
     FormPageObject.actionClearName();
-    FormPageObject.actionFindErrorMessageForField(FORM_SELECTORS.FULL_NAME_INPUT,FORM_SELECTORS.ERROR_MESSAGE,errorMessage)
+    FormPageObject.actionFindErrorMessageForField(FORM_SELECTORS.FULL_NAME_INPUT,FORM_SELECTORS.ERROR_MESSAGE,errorMessage);
   });
  // cy.get(FORM_SELECTORS.FULL_NAME_INPUT).clear();
  // cy.get(FORM_SELECTORS.FULL_NAME_INPUT).next(FORM_SELECTORS.ERROR_MESSAGE).should('have.text', errorMessage);
