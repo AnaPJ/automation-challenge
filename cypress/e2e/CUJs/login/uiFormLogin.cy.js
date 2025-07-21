@@ -55,9 +55,9 @@ describe('Login functionality', () => {
   // cy.getCookie(DATA.COOKIE_NAME).should('exist')
   // cy.url().should.equal(URLs.HOME)
   // cy.get(URLs.HOME).should('be.visible')
-  // cy.get(URLs.FAVORITE).should('be.visible')
-  // cy.get(URLs.MY_ACCOUNT).should('be.visible')
-  // cy.get(URLs.LOGOUT).should('be.visible')  
+  // cy.get(GLOBAL_SELECTORS.FAVORITE).should('be.visible')
+  // cy.get(GLOBAL_SELECTORS.MY_ACCOUNT).should('be.visible')
+  // cy.get(GLOBAL_SELECTORS.LOGOUT).should('be.visible')  
 })
 
 describe('Validate API Account login', () => {

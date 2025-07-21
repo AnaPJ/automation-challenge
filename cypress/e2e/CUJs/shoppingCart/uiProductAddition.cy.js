@@ -3,7 +3,7 @@ import { GLOBAL_SELECTORS } from '../../../pages/globalSelectors';
 import { SHOPING_CART_SELECTORS } from '../../../pages/shoppingCartSelectors';
 import { HOME_PAGE_SELECTORS } from '../../../pages/homePageSelectors';
 
-describe ('Product addition functionality', () => {
+describe ('Product addition and cleaning up functionality', () => {
   beforeEach(() => {
     cy.visit(URLs.HOME)
     cy.get(GLOBAL_SELECTORS.SHOPPING_CART_ICON).click(); 
@@ -27,7 +27,7 @@ describe ('Product addition functionality', () => {
     cy.contains ('p',HOME_PAGE_SELECTORS.PRODUCT_SET_PESAS).parents(HOME_PAGE_SELECTORS.PRODUCT_CARD).next().click();
   });
 
-  // // BUG: Este escenario va a a fallar porque el carrito no refleja la suma de items cuando pertenecen a una misma clase. 
+  // BUG: Este escenario va a a fallar porque el carrito no refleja la suma de items cuando pertenecen a una misma clase. 
   // it ('should verify that 1+ added items of the same kind are reflected in the shopping cart item count', () => {
   //   const numberOfClicks = 3;
   //   cy.contains('p', HOME_PAGE_SELECTORS.PRODUCT_BANDAS).parents(HOME_PAGE_SELECTORS.PRODUCT_CARD).next().click().as('productItemToClick');
@@ -77,11 +77,22 @@ describe ('Product addition functionality', () => {
     cy.get(GLOBAL_SELECTORS.SHOPPING_CART_ICON_COUNT).first().should('be.visible').and('have.text', '1'); 
     cy.get(GLOBAL_SELECTORS.SHOPPING_CART_ICON).click(); 
     cy.get(SHOPING_CART_SELECTORS.SHOPPING_CART_MODAL).should('be.visible');
-    cy.get(SHOPING_CART_SELECTORS.EMPTY_CART_BUTTON).click();
+    cy.get(SHOPING_CART_SELECTORS.FIRST_PRODUCT_DELETE).click();
     cy.get(SHOPING_CART_SELECTORS.NO_ELEMENTS_MESSAGE).should('be.visible').and('contain', 'No tienes elementos en el carrito'); 
     cy.get(SHOPING_CART_SELECTORS.TOTAL).should('be.visible').and('contain', 'Total: $0.00');
     cy.get(SHOPING_CART_SELECTORS.CLOSE_BUTTON).click(); 
   });
+
+   it ('should verify that the shopping cart can be cleaned up', () => {
+    cy.contains('p', HOME_PAGE_SELECTORS.PRODUCT_BANDAS).parents(HOME_PAGE_SELECTORS.PRODUCT_CARD).next().click(); 
+    cy.get(GLOBAL_SELECTORS.SHOPPING_CART_ICON_COUNT).first().should('be.visible').and('have.text', '1'); 
+    cy.get(GLOBAL_SELECTORS.SHOPPING_CART_ICON).click(); 
+    cy.get(SHOPING_CART_SELECTORS.SHOPPING_CART_MODAL).should('be.visible');
+    cy.get(SHOPING_CART_SELECTORS.EMPTY_CART_BUTTON).click();
+    cy.get(SHOPING_CART_SELECTORS.NO_ELEMENTS_MESSAGE).should('be.visible').and('contain', 'No tienes elementos en el carrito'); 
+    cy.get(SHOPING_CART_SELECTORS.TOTAL).should('be.visible').and('contain', 'Total: $0.00');
+    cy.get(SHOPING_CART_SELECTORS.CLOSE_BUTTON).click(); 
+  });  
 });
 
 
