@@ -5,7 +5,7 @@ export const URLs = {
     CHECKOUT: '/checkout',
     PRODUCTS: '/products',
     CONFIRM: '/auth/confirm-account?token=RpdSbIGhZz5o0yqKOSuNhXcw5vqT4b&email=',
-    FAVORITE: 'a[href="/whishlist"]',
-    MY_ACCOUNT:'a[href="/my-account"]',
-    LOGOUT:'a[href="/auth/logout"]',
+    FAVORITE: '/whishlist',
+    MY_ACCOUNT:'/my-account',
+    LOGOUT:'/auth/logout',
 }
