@@ -49,11 +49,6 @@ npx cypress run
 
 Create new test files inside the `cypress/e2e/` directory. Test data can be placed in `cypress/fixtures/`.
 
-## More Information
+## AT Strategy Doc
 
-- [Cypress Documentation](https://docs.cypress.io/)
-- [Best Practices](https://docs.cypress.io/guides/references/best-practices)
-
----
-
-Feel free to update this README with project-specific instructions or details!
+To see the details about the AT strategy defined for this project, follow this link (Use the Huge account for access): https://docs.google.com/document/d/1OSPizNDCFjsy0Ffs6SovDEc3STihtNmvwLECiAoLMZw/edit?pli=1&tab=t.8fizdrrqpggo
